@@ -6,6 +6,7 @@ This will relocate classes packages matchings the relocations specified and upda
 
 This is inspired by https://github.com/redbadger/shade which allows you to relocate clojure namespaces
 
+![](https://clojars.org/lein-uber-shade/latest-version.svg)
 
 ## Usage
 
