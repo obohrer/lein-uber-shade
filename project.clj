@@ -1,4 +1,4 @@
-(defproject lein-uber-shade "0.1.0"
+(defproject lein-uber-shade "0.1.1"
   :description "Lein plugin to relocate classes/packages within uberjars"
   :url "https://github.com/obohrer/lein-uberjar-shade"
   :license {:name "Eclipse Public License" :url "http://www.eclipse.org/legal/epl-v20.html"}
