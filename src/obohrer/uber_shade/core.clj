@@ -16,16 +16,14 @@
 
 
 (defn- ^ShadeRequest shade-request
-  [{:keys [jar shaded-jar relocations filters shade-source-content]
-    :or {relocations []
-         shade-source-content false}}]
+  [{:keys [jar shaded-jar relocations filters shade-source-content]}]
   (doto (ShadeRequest.)
     (.setJars #{(io/as-file jar)})
     (.setUberJar (io/as-file shaded-jar))
     (.setRelocators (map simple-relocation relocations))
-    (.setFilters [])
-    (.setResourceTransformers [])
-    (.setShadeSourcesContent shade-source-content)))
+    (.setShadeSourcesContent shade-source-content)
+    (.setFilters filters)
+    (.setResourceTransformers [])))
 
 
 (defn- ^Shader shader
@@ -37,6 +35,6 @@
 
 (defn shade
   "Runs the maven shade plugin using the relocations to configure SimpleRelocator"
-  [{:keys [jar shaded-jar relocations shade-source-content]
+  [{:keys [jar shaded-jar relocations]
     :as shade-request-config}]
   (.shade (shader) (shade-request shade-request-config)))

@@ -13,9 +13,13 @@
         uberjar-file (uberjar/uberjar project)
         shaded-jar-file (str (io/file output-dir
                                       (-> project jar/get-jar-filename io/file .getName)))
-        {:keys [relocations shade-source-content]} (:uber-shade project)]
+        {:keys [relocations shade-source-content filters]
+         :or {shade-source-content false
+              filters              []}}
+        (:uber-shade project)]
     (core/shade {:jar uberjar-file :shaded-jar shaded-jar-file
                  :relocations relocations
+                 :filters filters
                  :shade-source-content shade-source-content})
     (main/info "Created" shaded-jar-file)
     shaded-jar-file))
