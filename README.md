@@ -12,7 +12,7 @@ This is inspired by https://github.com/redbadger/shade which allows you to reloc
 
 Use this for project-level plugins:
 
-Put `[lein-uber-shade "0.1.0"]` into the `:plugins` vector of your project.clj.
+Put `[lein-uber-shade "0.1.2"]` into the `:plugins` vector of your project.clj.
 
 To build the uberjar with shaded classes/packages/dependencies:
 
